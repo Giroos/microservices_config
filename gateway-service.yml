@@ -15,7 +15,14 @@ spring:
           predicates:
             - Path=/order/**, /cart/**
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
 logging:
   level:
     org.springframework.cloud.gateway: DEBUG
     reactor.netty.http.client: DEBUG
+

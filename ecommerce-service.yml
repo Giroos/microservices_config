@@ -22,3 +22,8 @@ spring:
         connection:
           charSet=UTF-8
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
