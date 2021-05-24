@@ -1,0 +1,21 @@
+spring:
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+    gateway:
+      routes:
+        - id: product_service_route
+          uri: lb://product-service
+          predicates:
+            - Path=/group/**, /product/**
+
+        - id: ecommerce_service_route
+          uri: lb://ecommerce-service
+          predicates:
+            - Path=/order/**, /cart/**
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    reactor.netty.http.client: DEBUG
